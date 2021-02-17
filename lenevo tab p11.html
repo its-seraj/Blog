@@ -202,6 +202,7 @@
                 });
 
                 $(".update_list").on("click", function(){
+                    window.location.href = "index.html";
                     var value = $(this).data("value");
                     $.ajax({
                         url: "getURL.php",
