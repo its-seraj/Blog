@@ -1,0 +1,273 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myBlog</title>
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css.css">
+    <script src="js/jquery-1.11.0.min.js"></script>
+</head>
+<body>
+    <div class="topbar">
+        <div class="set1">
+            <img id="logo" src="img/logo.png" alt="myLogo" />
+            <div class="menu forums">Forums</div>
+            <div class="menu devices">Devices</div>
+            <div class="menu topics">Topics</div>
+            <div class="menu best_posts">Best Posts</div>
+        </div>
+        <div class="set2">
+            <input type="text" id="search" autocomplete="off" placeholder="Search..." />
+        </div>
+        <div class="searchSuggestion"></div>
+        <div class="topicsSuggestion"></div>
+        <div class="devicesSuggestion"></div>
+        <div class="forumsSuggestion"></div>
+        <div class="best_postsSuggestion"></div>
+    </div>
+    <script>
+        $(document).ready(function(){
+            // it's use to provide menu list dynamically
+            // for topicsSuggestion
+            $.ajax({
+                url: "menuList1.php",
+                success: function(data){
+                    $(".topicsSuggestion").html(data);
+                }
+            });
+        });
+        $(document).ready(function(){
+            // for devicesSuggestion
+            $.ajax({
+                url: "menuList2.php",
+                success: function(data){
+                    $(".devicesSuggestion").html(data);
+                }
+            });
+
+            // it's use for providing link to the menu bar lists
+            $(".tlist, .dlist").on("click", function(){
+                $param = $(this).data("value");
+                $.ajax({
+                    url: "menuURL.php",
+                    type: "POST",
+                    data: {param : $param},
+                    success: function(data){
+                        location.href=data.link;
+                    }
+                });
+            });
+
+        });
+    </script>
+    
+    <div class="blog-body"> -->
+<?php
+        $output = '<div class="head">
+                <div class="heading" data-value="1"><h>The Lenovo Tab P11 is the latest productivity tablet from the company</h></div>
+                <div class="heading2">
+                    <div class="time">06:00 PM &nbsp; - &nbsp;</div>
+                    <div class="date">07&nbsp;JAN &nbsp;2021</div>
+                    <div class="source">By <div class="name">Alex Xander</div></div>
+                </div>
+            </div>
+            <div class="body">
+                <p>&nbsp;&nbsp;&nbsp;<!-- for paragraph on 1st line -->
+                    At CES 2021, Lenovo has announced a new productivity tablet called the Tab P11. The newest Android-based tablet seems like a humbler version of the Tab P11 Pro that was launched back in August and is already selling in the US at a starting price of $500. The Tab P11 comes with the same set of supported accessories as the Pro variant, including the Keyboard Pack and Lenovo Precision Pen 2, both of which will be sold separately. This new tablet has been launched alongside the Lenovo IdeaPad 5 series, the new Yoga 7 AIO PC, new monitors, and the Lavie Mini PC and Lavie Pro Mobile laptop.
+                </p>
+                <img src="img/Lenovo-Tab-P11-product-image2-1024x683.jpg" alt="Lenovo-Tab-P11-product-image2-1024x683"/>
+                <p>&nbsp;&nbsp;&nbsp;
+                    The Tab P11 comes with an 11-inch display with a 2K (2000 x 1200 pixels) resolution, which is slightly smaller than the 11.5-inch on the Pro variant. It is an IPS panel and comes with 400-nits of brightness and an integrated Eye Care mode technology certified by TÜV Rheinland to lower harmful blue light to reduce eye strain. The tablet is Netflix certified, so you can expect HD content on it. Powering the device is the Qualcomm Snapdragon 662 SoC which includes LTE connectivity and there is 6GB of RAM to handle your multitasking needs.
+                </p>
+                <img src="img/Lenovo-Tab-P11-product-image-1-1024x683.jpg" alt="Lenovo-Tab-P11-product-image-1-1024x683" srcset="">
+                <p>&nbsp;&nbsp;&nbsp;
+                    The tablet runs on Android 10 and comes with Kids Space from Google, a new kids mode that features apps, books, and videos to help kids under nine years of age learn and have fun. As the COVID19 virus continues to force many to work from home, Lenovo is aiming to sell the Tab P11 to customers that want a portable office setup at home. To expand the productivity capabilities of the tablet, Lenovo is also offering some add on accessories that would be sold separately. First is the ultra-thin Keyboard Pack with a built-in trackpad that can snap into place using magnets and connects using the 4-point pogo-pin connector. There is also the Lenovo Precision Pen 2 which is capable of sensing tilt and subtle pressure adjustments for a more intuitive experience.
+                </p>
+                <img src="img/Lenovo-Tab-P11-keyboard-1024x683.jpg" alt="Lenovo-Tab-P11-keyboard-1024x683" srcset="">
+                <p>&nbsp;&nbsp;&nbsp;
+                    Lastly, there is the Lenovo Smart Charging Station 2 that allows for hands-free movie watching and stable charging while docked, and a new Folio Case for protection while you are carrying the tablet in your backpack.
+                </p>
+                <img src="img/Lenovo-Tab-P11-product-image3-1024x683.jpg" alt="Lenovo-Tab-P11-product-image3-1024x683" srcset="">
+                <p>&nbsp;&nbsp;&nbsp;
+                    The Lenovo Tab P11 will start at $229.99 and will be available starting this month. Some of the add-on accessories are already available on the Lenovo Store as they were launched with the Tab P11 Pro back in August 2020.
+                </p>
+                <!-- Specifications -->
+                <h2>Lenovo Tab P11 : Specifications</h2>
+                <table class="specs">
+                    <tr class="sh">
+                        <th class="h1">Specification</th>
+                        <th class="h2">Lenovo Tab P11</th>
+                    </tr>
+                    <tr class="sd">
+                        <td class="row1">Dimensions & Weight</td>
+                        <td class="row2">
+                            <ul>
+                                <li>258.4 x 163 x 7.5 mm</li>
+                                <li>490 gms</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr class="sd">
+                        <td class="row1">Display</td>
+                        <td class="row2">
+                            <ul>
+                                <li>11-inch 2K (2900×1200) IPS LCD</li>
+                                <li>220PPI</li>
+                                <li>400-nits brightness</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr class="sd">
+                        <td class="row1">Processor</td>
+                        <td class="row2">Qualcomm Snapdragon 662</td>
+                    </tr>
+                    <tr class="sd">
+                        <td class="row1">GPU</td>
+                        <td class="row2">Adreno 610</td>
+                    </tr>
+                    <tr class="sd">
+                        <td class="row1">RAM & Storage</td>
+                        <td class="row2">
+                            <ul>
+                                <li>4GB/6GB DDR4</li>
+                                <li>64GB/128GB</li>
+                                <li>MicroSD card slot up to 256GB</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr class="sd">
+                        <td class="row1">Battery</td>
+                        <td class="row2">
+                            <ul>
+                                <li>7500mAh (minimum)</li>
+                                <li>10V/2A charger</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr class="sd">
+                        <td class="row1">I/O</td>
+                        <td class="row2">
+                            <ul>
+                                <li>USB Type-C</li>
+                                <li>Nano SIM tray</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr class="sd">
+                        <td class="row1">Connectivity</td>
+                        <td class="row2">
+                            <ul>
+                                <li>Wi-Fi 6 ready</li>
+                                <li>LTE</li>
+                                <li>Bluetooth 5.1</li>
+                                <li>GPS</li>
+                                <li>FM Radio</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr class="sd">
+                        <td class="row1">OS</td>
+                        <td class="row2">Android 10</td>
+                    </tr>
+                    <tr class="sd">
+                        <td class="row1">Other Features</td>
+                        <td class="row2">
+                            <ul>
+                                <li>Dolby Atmos</li>
+                                <li>Quad-speakers</li>
+                                <li>Face unlock</li>
+                                <li>Google Kids Space</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </div>';
+?>
+        <!-- </div>
+        <div class="tab2">
+            <div class="latest">
+                <div class="head">Latest Update <div class="hr"></div></div>
+                <!-- Get all Data dynamically --!
+                <div class="getLatest"></div>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function(){
+                $("#logo").on("click", function(){
+                    location.href = "index.html";
+                });
+                
+                $except = $(".tab > .head > .heading").data("value");
+                $.ajax({
+                    url: "getUpdate.php",
+                    type: "POST",
+                    data: {except : $except},
+                    success: function(data){
+                        $(".tab2 > .latest > .getLatest").html(data);
+                        update();
+                    }
+                });
+
+                // Live Search
+                $("#search").on("keyup", function(){
+                    $value = $(this).val();
+                    if($value != ""){
+                        $(".searchSuggestion").show();
+                        $.ajax({
+                            url: "search.php",
+                            type: "POST",
+                            data: {search : $value},
+                            success: function(data){
+                                $(".searchSuggestion").html(data);
+                                update();
+                            }
+                        });
+                    }else{
+                        $(".searchSuggestion").hide();
+                    }
+                });
+
+                // Provide links dynamically
+                function update(){
+                    $(".update_list").on("click", function(){
+                        var value = $(this).data("value");
+                        $.ajax({
+                            url: "getURL.php",
+                            type: "POST",
+                            dataType: "JSON",
+                            data: {blog_no: value},
+                            success: function(data){
+                                window.location.href = data.link;
+                            }
+                        })
+                    });
+                }
+
+                // Topics Suggestion
+                $(".topics").on("click", function(){
+                    $(this).css("background-color", "#60de41c7");
+                    if($(".topicsSuggestion").css("visibility") == "hidden"){
+                        $(".topicsSuggestion").css("visibility", "visible");
+                    }
+                    else{
+                        $(".topicsSuggestion").css("visibility", "hidden");
+                        $(this).css("background-color", "#eee");
+                    }
+                });
+                // Devices Suggestion
+                $(".devices").on("click", function(){
+                    $(this).css("background-color", "#60de41c7");
+                    if($(".devicesSuggestion").css("visibility") == "hidden"){
+                        $(".devicesSuggestion").css("visibility", "visible");
+                    }
+                    else{
+                        $(".devicesSuggestion").css("visibility", "hidden");
+                        $(this).css("background-color", "#eee");
+                    }
+                });
+            })
+        </script>
+    </div>
+</body>
+</html> -->

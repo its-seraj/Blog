@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myBlog</title>
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css.css?<?=time()?>">
+    <script src="js/jquery-1.11.0.min.js"></script>
+</head>
+<body>
+    <div class="topbar">
+        <div class="set1">
+            <img id="logo" src="img/logo.png" alt="myLogo" />
+            <div class="menu forums">Forums</div>
+            <div class="menu devices">Devices</div>
+            <div class="menu topics">Topics</div>
+            <div class="menu best_posts">Best Posts</div>
+        </div>
+        <div class="set2">
+            <input id="search" autocomplete="off" type="text" placeholder="Search..." />
+        </div>
+        <div class="searchSuggestion"></div>
+        <div class="topicsSuggestion"></div>
+        <div class="devicesSuggestion"></div>
+        <div class="forumsSuggestion"></div>
+        <div class="best_postsSuggestion"></div>
+    </div>
+    <script>
+        $(document).ready(function(){
+            // it's use to provide menu list dynamically
+            // for topicsSuggestion
+            $.ajax({
+                url: "menuList1.php",
+                success: function(data){
+                    $(".topicsSuggestion").html(data);
+                }
+            });
+        });
+        $(document).ready(function(){
+            // for devicesSuggestion
+            $.ajax({
+                url: "menuList2.php",
+                success: function(data){
+                    $(".devicesSuggestion").html(data);
+                }
+            });
+
+            // it's use for providing link to the menu bar lists
+            $(".tlist, .dlist").on("click", function(){
+                $param = $(this).data("value");
+                $.ajax({
+                    url: "menuURL.php",
+                    type: "POST",
+                    data: {param : $param},
+                    success: function(data){
+                        location.href=data.link;
+                    }
+                });
+            });
+
+        });
+    </script>
+    <div class="blog-body">
+        <div class="tab">
+            <div class="homepage">
+                <div class="top1">
+                    <h1 class="heading"></h1>
+					<img src="" />
+                    <p></p>
+                </div>
+                <div class="hr"></div>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function(){
+                $.ajax({
+                    url: "homepage.php",
+                    type: "POST",
+                    dataType: "JSON",
+                    data: {},
+                    success: function(data){
+                        $(".top1 > .heading").text(data.heading);
+                        $(".top1 > img").attr("src", ("img/"+data.img));
+                        $(".top1 > p").text(data.para);
+                    }
+                });
+
+                // Topics Suggestion
+                $(".topics").on("click", function(){
+                    $(this).css("background-color", "#60de41c7");
+                    if($(".topicsSuggestion").css("visibility") == "hidden"){
+                        $(".topicsSuggestion").css("visibility", "visible");
+                    }
+                    else{
+                        $(".topicsSuggestion").css("visibility", "hidden");
+                        $(this).css("background-color", "#eee");
+                    }
+                });
+                // Devices Suggestion
+                $(".devices").on("click", function(){
+                    $(this).css("background-color", "#60de41c7");
+                    if($(".devicesSuggestion").css("visibility") == "hidden"){
+                        $(".devicesSuggestion").css("visibility", "visible");
+                    }
+                    else{
+                        $(".devicesSuggestion").css("visibility", "hidden");
+                        $(this).css("background-color", "#eee");
+                    }
+                });
+            });
+        </script>
+        <div class="tab2">
+            <div class="latest">
+                <div class="head">Latest Update <div class="hr"></div></div>
+                <!-- Get all Data dynamically -->
+                <div class="getLatest"></div>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function(){
+                $("#logo").on("click", function(){
+                    location.href = "index.html";
+                });
+                
+                // remove showing tab
+                function remShows(){
+                    $except = $(".tab > .head > .heading").data("value");
+                    if($except == undefined){$except = 0}
+                    $.ajax({
+                        url: "getUpdate.php",
+                        type: "POST",
+                        data: {except : $except},
+                        success: function(data){
+                            $(".tab2 > .latest > .getLatest").html(data);
+                            update();
+                        }
+                    });
+                }
+                remShows();
+
+                // Live Search
+                $("#search").on("keyup", function(){
+                    $value = $(this).val();
+                    if($value != ""){
+                        $(".searchSuggestion").show();
+                        $.ajax({
+                            url: "search.php",
+                            type: "POST",
+                            data: {search : $value},
+                            success: function(data){
+                                $(".searchSuggestion").html(data);
+                                update();
+                            }
+                        });
+                    }else{
+                        $(".searchSuggestion").hide();
+                    }
+                });
+
+                // Provide links dynamically
+                function update(){
+                    $(".update_list").on("click", function(){
+                        var value = $(this).data("value");
+                        $.ajax({
+                            url: "getURL.php",
+                            type: "POST",
+                            data: {blog_no: value},
+                            success: function(data){
+                                //window.location.href = data.link;
+                                $(".tab").html(data);
+                                remShows();
+                            }
+                        })
+                    });
+                }
+            })
+        </script>
+    </div>
+</body>
+</html>
