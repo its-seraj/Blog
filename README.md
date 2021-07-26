@@ -21,7 +21,7 @@
 <img src="https://i.ibb.co/n6qCGrx/menus.png" />
 
 ## SearchBar
-<img src="https://i.ibb.co/8PsDzF2/search.png" />
+<img src="https://i.ibb.co/LgQbL0J/search.png" />
 
 ## Article Page
 <img src="https://i.ibb.co/bRT6Bb0/screencapture-localhost-v-S-Workspace-web-Project-blog-2021-07-26-19-15-49.png" />
