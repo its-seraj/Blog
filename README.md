@@ -6,7 +6,7 @@
 <p><b><a href="https://github.com/its-seraj/Blog/archive/main.zip">Download </a>the Project and extract it to respective folder</b></li>
 <p aligm="center"><b>
   <ul>
-    <li>WAMP : [C:\\wamp64\www\](https://placehold.it/150/ffffff/ff0000?text=hello)</li>
+    <li>WAMP : C:\\wamp64\www\</li>
     <li>XAMPP : C:\\xampp\htdocs\</li>
     <li>import sql file to database</li>
   </ul>
