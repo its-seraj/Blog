@@ -15,13 +15,13 @@
   
 
 ## HomePage
-<img src="https://i.ibb.co/xmJrptk/Screenshot-208.png" />
+<p align="center"><img src="https://i.ibb.co/xmJrptk/Screenshot-208.png" /></p>
 
 ## MenuBar
-<img src="https://i.ibb.co/n6qCGrx/menus.png" />
+<p align="center"><img src="https://i.ibb.co/n6qCGrx/menus.png" /></p>
 
 ## SearchBar
-<img src="https://i.ibb.co/LgQbL0J/search.png" />
+<p align="center"><img src="https://i.ibb.co/LgQbL0J/search.png" /></p>
 
 ## Article Page
-<img src="https://i.ibb.co/bRT6Bb0/screencapture-localhost-v-S-Workspace-web-Project-blog-2021-07-26-19-15-49.png" />
+<p align="center"><img src="https://i.ibb.co/bRT6Bb0/screencapture-localhost-v-S-Workspace-web-Project-blog-2021-07-26-19-15-49.png" /></p>
